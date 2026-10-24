@@ -5,7 +5,7 @@ A backend API for a simplified event ticketing platform, built with Django and D
 ## How to run
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/SriParth-alt/eventhub.git
 cd eventhub
 
 python -m venv venv
