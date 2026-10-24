@@ -127,3 +127,17 @@ SQLite locks the whole database on write, so locally this mostly guarantees all-
 ### 3. `EventSerializer.validate` handles partial updates
 
 The validator compares the incoming `available_seats`/`total_seats` against the event's stored values when a field is missing. Without that, a `PATCH {"available_seats": 50}` would be compared to a `total_seats` of 0 and wrongly rejected.
+
+## Postman screenshots
+
+**Successful reservation (201 Created)**: 2 of the event's 3 seats reserved
+
+![Reservation 201](screenshots/1-reservation-201.webp)
+
+**Overbooking (400 Bad Request)**: trying to reserve 2 more when only 1 is left
+
+![Overbooking 400](screenshots/2-overbooking-400.webp)
+
+**Cancellation (200 OK)**: the reservation is marked cancelled and its seats go back to the event
+
+![Cancel](screenshots/3-cancel-200.webp)
